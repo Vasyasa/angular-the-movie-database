@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div id="film-details" *ngIf="filmDetail" class="card mx-auto">
+  <img class="card-img-top mx-auto" [src]="'https://image.tmdb.org/t/p/w500' + filmDetail.posterPath" />
+  <div class="card-body">
+    <h5 class="card-title">{{filmDetail.title}}</h5>
+    <p class="card-text">{{filmDetail.overview}}</p>
+    <p>Жанри:</p>
+    <span class="gener" *ngFor="let gener of filmDetail.genres ">{{ gener.name }} </span>
+  </div>
+  <div class="card-body card-body-button">
+    <a class="card-link btn btn-primary hBack" (click)="backClicked()">Повернутися назад</a>
+    <div *ngIf="!filmDetail.isChoosed ; then add else remove"></div>
+    <ng-template #add><a class="card-link btn btn-primary hBack" (click)="onChangeChoosed(filmDetail)">Додати в обране
+        +</a> </ng-template>
+    <ng-template #remove>
+      <div class="card-link btn btn-primary hBack" (click)="onChangeChoosed(filmDetail)">Додано!</div>
+    </ng-template>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body" id="recommended">
+    <h3>Рекомендовані фільми</h3>
+    <div class="row box-content">
+      <div *ngFor="let item of recommended" class="box-data">
+        <a class="box-movie" *ngIf="item.posterPath" [routerLink]="['/details',item.id]">
+          <img class="image-carossel" [src]="'https://image.tmdb.org/t/p/w200/' + item.posterPath" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

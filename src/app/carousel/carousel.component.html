@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container" id="popular">
+  <div class="box-carousel">
+    <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)"
+      class=" col-sm-9 col-md-6 col-lg-4 ">
+      <ng-template ngbSlide *ngFor="let film of films">
+        <div *ngIf="!film.isChoosed ; then add else remove"></div>
+        <ng-template #add><a class="card-link btn btn-primary hBack" (click)="onChangeChoosedMain(film)">Додати в обране
+            +</a> </ng-template>
+        <ng-template #remove>
+          <div class="card-link btn btn-primary hBack" (click)="onChangeChoosedMain(film)">Додано!</div>
+        </ng-template>
+        <div [routerLink]="['/details',film.id]" target="_self" rel="nofollow noopener noreferrer" class="card">
+          <div class="picsum-img-wrapper">
+            <img class="image-carousel" [src]="'https://image.tmdb.org/t/p/w500' + film.posterPath" />
+            <div class="tac">
+              <span class="gener" *ngFor="let gener of film.genres ">{{ gener.name }} </span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <div class="result-search">
+
+    </div>
+  </div>
+
+</div>

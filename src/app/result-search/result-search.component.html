@@ -1,0 +1,11 @@
+<div class="card-body" style="display: none;" id="results">
+  <h3 class="card-title">Результати пошуку</h3>
+  <div class="row box-content">
+    <div *ngFor="let data of datas" class="col-sm-12 col-md-6 col-lg-4 box-data">
+      <div class="box-movie" *ngIf="data.poster_path"> <a [routerLink]="['/details', data.id]">
+          <img class="image-carossel" [src]="'https://image.tmdb.org/t/p/w200/' + data.poster_path" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

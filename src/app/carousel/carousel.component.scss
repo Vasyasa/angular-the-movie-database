@@ -1,0 +1,34 @@
+.box-carousel {
+  display        : flex;
+  justify-content: center;
+  margin-top     : 5%;
+  width          : 100%;
+  padding-bottom : 5rem;
+}
+
+.carousel-inner {
+  font-size: 0%;
+}
+
+.image-carousel {
+  width : 100%;
+  height: 480px;
+}
+
+.gener {
+  font-size: 1.2rem;
+  color    : #111;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.btn-primary {
+  display        : flex;
+  justify-content: center;
+}
+
+.tac {
+  text-align: center;
+}

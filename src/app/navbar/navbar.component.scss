@@ -1,0 +1,39 @@
+.link-bar {
+    text-decoration: none;
+    color          : white;
+    padding        : 0 50px 0 5px;
+}
+
+.box-all-content {
+    display       : flex;
+    flex-direction: row;
+    position      : relative;
+}
+
+.box-result {
+    width   : 100%;
+    margin  : auto;
+    position: static;
+
+}
+
+.form-inline {
+    display: flex;
+}
+
+.form-control {
+    margin: 0 1rem;
+}
+
+.link-bar {
+    margin : 0 1rem;
+    padding: 0;
+}
+
+#myBtn {
+    margin-right: 1rem;
+}
+
+::-webkit-search-cancel-button {
+    cursor: pointer;
+}

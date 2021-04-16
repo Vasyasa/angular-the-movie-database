@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background     : url(https://image.freepik.com/free-vector/white-abstract-background-in-3d-paper-style_23-2148390818.jpg) no-repeat;
+    background-size: cover;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.card-body {
+    background     : url(https://image.freepik.com/free-photo/gray-wall-textures-for-background_74190-4389.jpg) no-repeat;
+    background-size: cover;
+}
+
+.box-data {
+    display       : contents;
+    flex-direction: column;
+    align-items   : center;
+    cursor        : pointer;
+    margin        : 11px 10px;
+    max-width     : 240px;
+}
+
+.box-movie {
+    display        : flex;
+    flex-direction : column;
+    margin         : 0.6rem;
+    max-width      : 200px;
+    align-items    : center;
+    justify-content: center;
+}
+
+.row {
+    justify-content: center;
+}
+
+.sr-only {
+    display: none;
+}
