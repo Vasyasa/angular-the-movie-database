@@ -3,12 +3,11 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 
 import { concatMap } from "rxjs/operators";
 
-import { AddFilmService } from '../choosed-film.service';
+import { ChoosedFilmService } from '../choosed-film.service';
 import { CarouselService } from '../carousel.service';
 import { GenreService } from '../genre.service';
 
 import { Film } from '../interfaces/film.interface';
-
 
 
 @Component({
@@ -27,9 +26,8 @@ export class CarouselComponent implements OnInit {
   constructor(
     private carouselService: CarouselService,
     private genreService: GenreService,
-    private addFilmService: AddFilmService
+    private addFilmService: ChoosedFilmService
   ) { }
-
 
   ngOnInit(): void {
     this.carouselService.getNextMovies().pipe(
@@ -52,7 +50,6 @@ export class CarouselComponent implements OnInit {
     film.isChoosed = this.addFilmService.saveChoosed(film.id, film.title);
   }
 
-
   togglePaused() {
     if (this.paused) {
       this.carousel.cycle();
@@ -72,4 +69,3 @@ export class CarouselComponent implements OnInit {
     }
   }
 }
-

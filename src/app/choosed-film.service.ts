@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class AddFilmService {
+export class ChoosedFilmService {
   filmsChoosed = [];
 
   constructor() {

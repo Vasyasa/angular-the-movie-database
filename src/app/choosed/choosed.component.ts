@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { AddFilmService as ChoosedFilmService } from '../choosed-film.service';
+import { ChoosedFilmService as ChoosedFilmService } from '../choosed-film.service';
+
 
 @Component({
   selector: 'app-choosed',
@@ -15,8 +16,6 @@ export class ChoosedComponent implements OnInit {
   public get filmsChoosed(): any[] {
     return this.choosedFilm.filmsChoosed;
   }
-
-  check;
 
   constructor(
     private _location: Location,
@@ -38,5 +37,4 @@ export class ChoosedComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
-
 }

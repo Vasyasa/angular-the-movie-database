@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NavbarService } from '../navbar.service';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,7 +11,6 @@ import { NavbarService } from '../navbar.service';
 export class NavbarComponent implements OnInit {
 
   constructor(private navService: NavbarService) { }
-
 
   ngOnInit(): void { }
   resultData: Object;
@@ -23,5 +23,4 @@ export class NavbarComponent implements OnInit {
 
     });
   }
-
 }

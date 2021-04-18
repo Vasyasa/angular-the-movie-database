@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AddFilmService as ChoosedFilmService } from './choosed-film.service';
+import { ChoosedFilmService as ChoosedFilmService } from './choosed-film.service';
 
 import { Film, Genre } from './interfaces/film.interface';
 
@@ -48,4 +48,3 @@ export class MovieDetailsService {
       }));
   }
 }
-

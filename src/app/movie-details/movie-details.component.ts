@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { MovieDetailsService } from '../movie-details.service';
-import { AddFilmService } from '../choosed-film.service';
+import { ChoosedFilmService } from '../choosed-film.service';
 
 import { Film } from '../interfaces/film.interface';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -19,7 +20,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private detailService: MovieDetailsService,
     private route: ActivatedRoute,
     private _location: Location,
-    private addFilmService: AddFilmService
+    private addFilmService: ChoosedFilmService
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +49,4 @@ export class MovieDetailsComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
-
-
 }

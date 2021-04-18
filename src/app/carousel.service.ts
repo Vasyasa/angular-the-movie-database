@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { map } from 'rxjs/operators';
-import { Film, Genre } from './interfaces/film.interface';
 import { Observable } from 'rxjs';
-import { AddFilmService as ChoosedFilmService } from './choosed-film.service';
 
+import { ChoosedFilmService as ChoosedFilmService } from './choosed-film.service';
 
-
+import { Film, Genre } from './interfaces/film.interface';
 
 
 @Injectable({
@@ -19,8 +19,7 @@ export class CarouselService {
   private KEY = '4581882ce738bbdeafb130c633d39bab';
   constructor(private htpp: HttpClient,
     private choosedFilmService: ChoosedFilmService
-    ) { }
-
+  ) { }
 
   getNextMovies(): Observable<Film[]> {
     return this.htpp
@@ -38,6 +37,4 @@ export class CarouselService {
         });
       }));
   }
-
-
 }
