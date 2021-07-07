@@ -1,10 +1,10 @@
-import { CarouselService } from './carousel.service';
+import { MovieDetailsService } from './movie-details.service';
 
 import { Film, Genre } from './interfaces/film.interface';
 import { of } from 'rxjs';
 
-describe('CarouselService', () => {
-  let service: CarouselService;
+describe('MovieDetailslService', () => {
+  let service: MovieDetailsService;
   let httpClientSpy: { get: jasmine.Spy };
   let choosedFilmServiceSpy: { filmsChoosed: jasmine.Spy };
 
@@ -12,7 +12,7 @@ describe('CarouselService', () => {
     
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
     choosedFilmServiceSpy = jasmine.createSpyObj('ChoosedFilmService', ['filmsChoosed']);
-    service = new CarouselService(httpClientSpy as any, choosedFilmServiceSpy as any);
+    service = new MovieDetailsService(httpClientSpy as any, choosedFilmServiceSpy as any);
 
 
 
@@ -24,23 +24,22 @@ describe('CarouselService', () => {
 
   it('#getObservableValue should return value from observable',
     (done: DoneFn) => {
-      const expectedFilm: Film[] = [{
-        id: 1,
-        isChoosed: true,
-        overview: ' ',
-        posterPath: 'img',
-        title: ' ',
-        genres: [{
+      let isChoosed = choosedFilmServiceSpy.filmsChoosed
+      const expectedFilm: Film = {
           id: 1,
-        } as Genre]
-      } as Film]
+          isChoosed: isChoosed,
+          title: "title",
+          overview: ' ',
+          posterPath: 'img',
+          genres: [{
+              id: 1,
+          } as Genre]
+      } as unknown as Film
 
-      const mockData = {
-        films: expectedFilm,
-      };
 
-      httpClientSpy.get.and.returnValue(of(mockData));
-      service.getNextMovies().subscribe(films => {
+
+      httpClientSpy.get.and.returnValue(of(expectedFilm));
+      service.getMovieById(1).subscribe(films => {
         expect(films).toEqual(expectedFilm, 'expected films');
         done();
       },

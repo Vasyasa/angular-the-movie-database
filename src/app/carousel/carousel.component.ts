@@ -7,7 +7,7 @@ import { ChoosedFilmService } from '../choosed-film.service';
 import { CarouselService } from '../carousel.service';
 import { GenreService } from '../genre.service';
 
-import { Film } from '../interfaces/film.interface';
+import { Film, Genre } from '../interfaces/film.interface';
 
 
 @Component({
@@ -35,8 +35,8 @@ export class CarouselComponent implements OnInit {
         this.films = films;
         console.log(this.films)
         return this.genreService.getGenre();
-      })).subscribe((data: any) => {
-        let resultGenres = data.genres;
+      })).subscribe((genres: Genre[]) => {
+        let resultGenres = genres;
         console.log(resultGenres)
         this.films.forEach(film => {
           film.genres.forEach(genre => {

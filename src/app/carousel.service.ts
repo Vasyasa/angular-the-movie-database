@@ -33,7 +33,7 @@ export class CarouselService {
             id: film.id,
             title: film.title,
             isChoosed: this.choosedFilmService.filmsChoosed.find(choosedFilm => choosedFilm.id == film.id)
-          }
+          } as Film
         });
       }));
   }

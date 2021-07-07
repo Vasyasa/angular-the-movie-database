@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ChoosedFilmService } from './choosed-film.service';
 
-describe('AddFilmService', () => {
+describe('ChoosedFilmService', () => {
   let service: ChoosedFilmService;
 
   beforeEach(() => {
